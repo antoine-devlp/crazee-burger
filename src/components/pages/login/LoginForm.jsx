@@ -8,7 +8,7 @@ export const LoginForm = () => {
   // comportement
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate("/order", { state: { login } });
+    navigate(`order/${login}`);
     setLogin("");
   };
 
