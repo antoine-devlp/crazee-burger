@@ -1,16 +1,15 @@
-import { useLocation, useNavigate } from "react-router";
+import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
 
 export const OrderPage = () => {
-  const navigate = useNavigate();
   const { state } = useLocation();
-  const handleClick = () => {
-    navigate("/");
-  };
   return (
     <div>
       <h1>Bonjour {state.login}</h1>
       <br />
-      <button onClick={handleClick}>Déconnexion</button>
+      <Link to="/">
+        <button>Déconnexion</button>
+      </Link>
     </div>
   );
 };
