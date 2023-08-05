@@ -11,7 +11,6 @@ export const LoginForm = () => {
   };
 
   const handleChange = (event) => {
-    // recup state
     setLogin(event.target.value);
   };
   // render
