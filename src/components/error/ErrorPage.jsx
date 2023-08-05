@@ -1,14 +1,12 @@
-import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 export const ErrorPage = () => {
-  const navigate = useNavigate();
-  const handleClick = () => {
-    navigate("/");
-  };
   return (
     <div id="error-page">
       <h1>ErrorPage</h1>
-      <button onClick={handleClick}>Retourner à la page d'accueil</button>
+      <Link to="/">
+        <button>Retourner à la page d'accueil</button>
+      </Link>
     </div>
   );
 };
