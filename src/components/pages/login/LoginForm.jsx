@@ -61,6 +61,7 @@ const LoginFormStyled = styled.form`
   h2 {
     color: ${theme.colors.white};
     font-family: ${theme.family.Amatic};
+    font-weight: ${theme.weights.bold};
     text-align: center;
   }
   h1 {
@@ -70,7 +71,7 @@ const LoginFormStyled = styled.form`
     font-weight: ${theme.weights.bold};
   }
   hr {
-    border-color: ${theme.colors.red};
+    border: 1.5px solid ${theme.colors.red};
     margin-bottom: 40px;
   }
   h2 {
