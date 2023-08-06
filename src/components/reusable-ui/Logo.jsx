@@ -1,8 +1,8 @@
 import { styled } from "styled-components";
 
-import { theme } from "../theme";
+import { theme } from "../../theme";
 
-import logo from "/src/assets/logo-orange.png";
+import logo from "/images/logo-orange.png";
 
 export const Logo = () => {
   return (
