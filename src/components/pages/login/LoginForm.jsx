@@ -3,9 +3,10 @@ import { useNavigate } from "react-router";
 import { styled } from "styled-components";
 
 import { theme } from "../../../theme";
+import { TextInput } from "../../reusable-ui/TextInput";
 
-import { BsPersonCircle } from "react-icons/bs";
 import { MdArrowForwardIos } from "react-icons/md";
+import { BsPersonCircle } from "react-icons/bs";
 
 export const LoginForm = () => {
   const navigate = useNavigate();
@@ -19,7 +20,6 @@ export const LoginForm = () => {
     navigate(`order/${login}`);
     setLogin("");
   };
-
   const handleChange = (event) => {
     setLogin(event.target.value);
     if (event.target.value) {
@@ -35,16 +35,13 @@ export const LoginForm = () => {
       <hr />
       <h2>Connectez-vous</h2>
       <div className="form">
-        <div className="input">
-          <BsPersonCircle className="icon" />
-          <input
-            onChange={handleChange}
-            type="text"
-            value={login}
-            placeholder="Entrez votre prénom"
-            required
-          />
-        </div>
+        <TextInput
+          value={login}
+          onChange={handleChange}
+          Icon={<BsPersonCircle className="icon" />}
+          placeholder={"Entrez votre prénom"}
+          required
+        />
         <button className={isClicked ? "active" : ""}>
           Accéder à mon espace <MdArrowForwardIos className="arrow" />
         </button>
@@ -82,28 +79,6 @@ const LoginFormStyled = styled.form`
     display: flex;
     flex-direction: column;
     margin: auto;
-    .input {
-      padding: 18px 24px;
-      margin-bottom: 18px;
-      background-color: #fff;
-      display: inherit;
-      border-radius: ${theme.borderRadius.round};
-      display: flex;
-      align-items: center;
-      .icon {
-        color: ${theme.colors.greySemiDark};
-        font-size: 20px;
-        width: 15px;
-        height: 15px;
-        margin-right: 10px;
-      }
-      input {
-        border: none;
-        font-family: Arial, Helvetica, sans-serif;
-        width: 100%;
-        color: ${theme.colors.dark};
-      }
-    }
   }
   button {
     background-color: ${theme.colors.primary_burger};
