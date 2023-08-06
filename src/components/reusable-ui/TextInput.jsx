@@ -18,13 +18,7 @@ const TextInputStyled = styled.div`
   border-radius: ${theme.borderRadius.round};
   display: flex;
   align-items: center;
-  .icon {
-    color: ${theme.colors.greySemiDark};
-    font-size: 20px;
-    width: 15px;
-    height: 15px;
-    margin-right: 10px;
-  }
+
   input {
     border: none;
     font-family: Arial, Helvetica, sans-serif;

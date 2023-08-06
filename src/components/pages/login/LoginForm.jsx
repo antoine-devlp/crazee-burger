@@ -7,6 +7,7 @@ import { TextInput } from "../../reusable-ui/TextInput";
 
 import { MdArrowForwardIos } from "react-icons/md";
 import { BsPersonCircle } from "react-icons/bs";
+import PrimaryButton from "../../reusable-ui/PrimaryButton";
 
 export const LoginForm = () => {
   const navigate = useNavigate();
@@ -42,9 +43,11 @@ export const LoginForm = () => {
           placeholder={"Entrez votre prénom"}
           required
         />
-        <button className={isClicked ? "active" : ""}>
-          Accéder à mon espace <MdArrowForwardIos className="arrow" />
-        </button>
+        <PrimaryButton
+          checkIfClicked={isClicked}
+          label={"Accéder à mon espace"}
+          Icon={<MdArrowForwardIos className="arrow" />}
+        />
       </div>
     </LoginFormStyled>
   );
@@ -80,34 +83,15 @@ const LoginFormStyled = styled.form`
     flex-direction: column;
     margin: auto;
   }
-  button {
-    background-color: ${theme.colors.primary_burger};
-    border: 1px solid ${theme.colors.primary_burger};
-    border-radius: ${theme.borderRadius.round};
-    padding: 18px 24px;
-    color: ${theme.colors.white};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: ${theme.fonts.P0};
-    font-weight: ${theme.weights.bold};
-    transition: all 0.3s ease-in-out;
-    .arrow {
-      margin-left: 10px;
-      font-size: 15px;
-    }
+  .icon {
+    color: ${theme.colors.greySemiDark};
+    font-size: 20px;
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
   }
-  button:hover {
-    background-color: ${theme.colors.white};
-    color: ${theme.colors.primary_burger};
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-  }
-  button:active,
-  button.active {
-    background-color: ${theme.colors.primary_burger};
-    color: ${theme.colors.white};
-    border-color: ${theme.colors.white};
-    transition: all 0.3s ease-in-out;
+  .arrow {
+    margin-left: 10px;
+    font-size: 15px;
   }
 `;
