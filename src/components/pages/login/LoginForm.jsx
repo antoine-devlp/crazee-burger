@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { styled } from "styled-components";
+
 import { theme } from "../../../theme";
+
 import { BsPersonCircle } from "react-icons/bs";
 import { MdArrowForwardIos } from "react-icons/md";
 
@@ -20,7 +22,7 @@ export const LoginForm = () => {
 
   const handleChange = (event) => {
     setLogin(event.target.value);
-    if (event.target.value != "") {
+    if (event.target.value) {
       setisClicked(true);
     } else {
       setisClicked(false);
@@ -32,8 +34,8 @@ export const LoginForm = () => {
       <h1>Bienvenue chez nous !</h1>
       <hr />
       <h2>Connectez-vous</h2>
-      <div className="formInfo">
-        <div className="inputIcon">
+      <div className="form">
+        <div className="input">
           <BsPersonCircle className="icon" />
           <input
             onChange={handleChange}
@@ -43,7 +45,7 @@ export const LoginForm = () => {
             required
           />
         </div>
-        <button className={isClicked ? "clicked" : ""}>
+        <button className={isClicked ? "active" : ""}>
           Accéder à mon espace <MdArrowForwardIos className="arrow" />
         </button>
       </div>
@@ -64,7 +66,7 @@ const LoginFormStyled = styled.form`
   h1 {
     margin-top: 0px;
     font-size: ${theme.fonts.P5};
-    margin-bottom: 32px;
+    margin-bottom: ${theme.fonts.lg};
     font-weight: ${theme.weights.bold};
   }
   hr {
@@ -75,34 +77,32 @@ const LoginFormStyled = styled.form`
     font-size: ${theme.fonts.P4};
     margin-bottom: 18px;
   }
-  .formInfo {
+  .form {
     display: flex;
     flex-direction: column;
     margin: auto;
-  }
-
-  .formInfo .inputIcon {
-    padding: 18px 24px;
-    margin-bottom: 18px;
-    background-color: #fff;
-    display: inherit;
-    border-radius: ${theme.borderRadius.round};
-    display: flex;
-    align-items: center;
-  }
-
-  .formInfo .inputIcon .icon {
-    color: ${theme.colors.greySemiDark};
-    font-size: 20px;
-    width: 15px;
-    height: 15px;
-    margin-right: 10px;
-  }
-  .formInfo .inputIcon input {
-    border: none;
-    font-family: Arial, Helvetica, sans-serif;
-    width: 100%;
-    color: ${theme.colors.dark};
+    .input {
+      padding: 18px 24px;
+      margin-bottom: 18px;
+      background-color: #fff;
+      display: inherit;
+      border-radius: ${theme.borderRadius.round};
+      display: flex;
+      align-items: center;
+      .icon {
+        color: ${theme.colors.greySemiDark};
+        font-size: 20px;
+        width: 15px;
+        height: 15px;
+        margin-right: 10px;
+      }
+      input {
+        border: none;
+        font-family: Arial, Helvetica, sans-serif;
+        width: 100%;
+        color: ${theme.colors.dark};
+      }
+    }
   }
   button {
     background-color: ${theme.colors.primary_burger};
@@ -116,10 +116,10 @@ const LoginFormStyled = styled.form`
     font-size: ${theme.fonts.P0};
     font-weight: ${theme.weights.bold};
     transition: all 0.3s ease-in-out;
-  }
-  button .arrow {
-    margin-left: 10px;
-    font-size: 15px;
+    .arrow {
+      margin-left: 10px;
+      font-size: 15px;
+    }
   }
   button:hover {
     background-color: ${theme.colors.white};
@@ -128,7 +128,7 @@ const LoginFormStyled = styled.form`
     transition: all 0.3s ease-in-out;
   }
   button:active,
-  button.clicked {
+  button.active {
     background-color: ${theme.colors.primary_burger};
     color: ${theme.colors.white};
     border-color: ${theme.colors.white};
