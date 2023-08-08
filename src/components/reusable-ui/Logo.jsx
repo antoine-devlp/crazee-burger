@@ -6,7 +6,7 @@ import logo from "/images/logo-orange.png";
 
 export const Logo = () => {
   return (
-    <LogoStyled>
+    <LogoStyled className="wrapperLogo">
       <h1>CRAZEE</h1>
       <img src={logo} alt="" />
       <h1>BURGER</h1>
@@ -18,8 +18,7 @@ const LogoStyled = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 40px;
-  scale: 1.5;
-
+  transform: scale(1.5);
   h1 {
     display: inline;
     text-align: center;
@@ -40,6 +39,6 @@ const LogoStyled = styled.div`
     margin: 0 5px;
   }
   @media (min-width: 768px) {
-    scale: 2.5;
+    transform: scale(2.5);
   }
 `;
