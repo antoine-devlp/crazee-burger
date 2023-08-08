@@ -7,7 +7,7 @@ export const NavBar = () => {
   const { username } = useParams();
   return (
     <NavBarStyled>
-      <a href="./">
+      <a href={username}>
         <Logo />
       </a>
       <div className="InfosProfil">
@@ -34,6 +34,9 @@ const NavBarStyled = styled.nav`
   padding: 19px 20px;
   @media (min-width: 768px) {
     padding: 0px 20px;
+  }
+  a {
+    text-decoration: none;
   }
   .wrapperLogo {
     width: fit-content;
