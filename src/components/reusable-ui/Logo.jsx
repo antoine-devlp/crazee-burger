@@ -4,9 +4,9 @@ import { theme } from "../../theme";
 
 import logo from "/images/logo-orange.png";
 
-export const Logo = () => {
+export const Logo = ({className}) => {
   return (
-    <LogoStyled className="wrapperLogo">
+    <LogoStyled className={className}>
       <h1>CRAZEE</h1>
       <img src={logo} alt="" />
       <h1>BURGER</h1>
@@ -18,7 +18,7 @@ const LogoStyled = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 40px;
-  transform: scale(1.5);
+  /* transform: scale(1.5); */
   h1 {
     display: inline;
     text-align: center;
@@ -38,7 +38,7 @@ const LogoStyled = styled.div`
     width: 80px;
     margin: 0 5px;
   }
-  @media (min-width: 768px) {
+  /* @media (min-width: 768px) {
     transform: scale(2.5);
-  }
+  } */
 `;

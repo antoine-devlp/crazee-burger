@@ -5,7 +5,7 @@ import Background from "/images/burger-background.jpg";
 export const LoginPage = () => {
   return (
     <LoginPageStyled>
-      <Logo />
+      <Logo className={"logo-login-page"}/>
       <LoginForm />
     </LoginPageStyled>
   );
@@ -21,4 +21,10 @@ const LoginPageStyled = styled.div`
   background-size: cover;
   background-position: center;
   background-blend-mode: darken;
+  .logo-login-page{
+    transform: scale(1.5);
+    @media (min-width: 768px) {
+      transform: scale(2.5);
+    }
+  }
 `;

@@ -7,9 +7,9 @@ export const NavBar = () => {
   const { username } = useParams();
   return (
     <NavBarStyled>
-      <a href={username}>
-        <Logo />
-      </a>
+      <Link to={username}>
+        <Logo className={"wrapperLogo"} />
+      </Link>
       <div className="InfosProfil">
         <div className="Infos">
           <h1>
@@ -41,7 +41,6 @@ const NavBarStyled = styled.nav`
   .wrapperLogo {
     width: fit-content;
     margin-bottom: 0px;
-    transform: scale(1);
     h1 {
       display: none;
     }
