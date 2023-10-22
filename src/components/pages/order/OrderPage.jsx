@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import { theme } from "../../../theme";
 // import { theme } from "../../../theme";
-import { NavBar } from "../../reusable-ui/NavBar";
+import { NavBar } from "./NavBar";
 import { OrderPageContent } from "./OrderPageContent";
 
 export const OrderPage = () => {
