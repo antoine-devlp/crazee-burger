@@ -41,6 +41,7 @@ export const LoginForm = () => {
           onChange={handleChange}
           Icon={<BsPersonCircle className="icon" />}
           placeholder={"Entrez votre prénom"}
+          maxLength="14"
           required
         />
         <PrimaryButton
