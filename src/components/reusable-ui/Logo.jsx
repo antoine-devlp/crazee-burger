@@ -4,9 +4,9 @@ import { theme } from "../../theme";
 
 import logo from "/images/logo-orange.png";
 
-export const Logo = ({className}) => {
+export const Logo = ({className, onClick}) => {
   return (
-    <LogoStyled className={className}>
+    <LogoStyled className={className} onClick={onClick}>
       <h1>CRAZEE</h1>
       <img src={logo} alt="" />
       <h1>BURGER</h1>
