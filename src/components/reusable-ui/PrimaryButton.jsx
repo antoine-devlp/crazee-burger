@@ -1,9 +1,9 @@
 import { styled } from "styled-components";
 import { theme } from "../../theme";
 
-export default function PrimaryButton({ checkIfClicked, Icon, label }) {
+export default function PrimaryButton({ className, Icon, label }) {
   return (
-    <PrimaryButtonStyled className={checkIfClicked ? "active" : ""}>
+    <PrimaryButtonStyled className={className}>
       <span>{label}</span>
       {Icon && Icon}
     </PrimaryButtonStyled>
@@ -29,11 +29,15 @@ const PrimaryButtonStyled = styled.button`
     cursor: pointer;
     transition: all 0.3s ease-in-out;
   }
-  &:active,
-  &.active {
+  &:active{
     background-color: ${theme.colors.primary_burger};
     color: ${theme.colors.white};
     border-color: ${theme.colors.white};
     transition: all 0.3s ease-in-out;
+  }
+  &.is-disabled {
+    opacity: 50%;
+    cursor: not-allowed;
+    z-index: 2;
   }
 `;
