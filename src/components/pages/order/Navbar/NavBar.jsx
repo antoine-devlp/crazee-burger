@@ -1,9 +1,9 @@
 import { Link, useParams } from "react-router-dom";
 import { styled } from "styled-components";
-import { theme } from "../../../theme";
+import { theme } from "../../../../theme";
 import { NavbarRight } from "./NavbarRight";
-import { Logo } from "../../reusable-ui/Logo";
-import { refreshPage } from "../../../utils/window";
+import { Logo } from "../../../reusable-ui/Logo";
+import { refreshPage } from "../../../../utils/window";
 export const NavBar = () => {
 
   const { username } = useParams();
