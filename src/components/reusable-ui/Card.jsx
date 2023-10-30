@@ -1,13 +1,8 @@
 import styled from "styled-components";
 import PrimaryButton from "./PrimaryButton";
 import { theme } from "../../theme";
-import { formatPrice } from "../../utils/maths";
 
 export default function Card({image,titre,prix}) {
-  prix = formatPrice(prix);
-  if (titre.length > 18 ){
-    titre = titre.substring(0, 18 - 4) + "...";
-  }
   return (
     <CardStyled>
       <img src={image} alt="" className='image'/>
@@ -41,6 +36,9 @@ const CardStyled = styled.div`
       font-weight: ${theme.weights.bold};
       font-size: ${theme.fonts.P4};
       margin-bottom: 6.75px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
     }
     .infos{
       display: flex;
