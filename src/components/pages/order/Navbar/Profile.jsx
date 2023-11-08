@@ -36,6 +36,7 @@ const ProfileStyled = styled.div`
     }
     .orange {
       color: ${theme.colors.primary};
+      font-weight: ${theme.weights.bold};
     }
     .logout {
       color: ${theme.colors.greyBlue};
