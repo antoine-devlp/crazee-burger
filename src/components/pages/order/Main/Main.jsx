@@ -3,12 +3,15 @@ import { theme } from "../../../../theme";
 
 import Menu from "./Menu";
 import AdminBar from "../Admin/AdminBar";
+import { useContext } from "react";
+import AdminContext from "../../../../Context/AdminContext";
 export const Main = () => {
+  const { isModeAdmin } = useContext(AdminContext);
   return (
     <MainStyled>
       {/* <div className="bascket">test</div> */}
       <Menu />
-      <AdminBar />
+      {isModeAdmin ? <AdminBar /> : ""}
     </MainStyled>
   );
 };
