@@ -1,24 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import { fakeMenu2, fakeMenu1 } from "../../../../fakeData/fakeMenu";
-import styled from 'styled-components';
-import Card from '../../../reusable-ui/Card';
-import { theme } from '../../../../theme';
+import styled from "styled-components";
+import Card from "../../../reusable-ui/Card";
+import { theme } from "../../../../theme";
 import { formatPrice } from "../../../../utils/maths";
 export default function Menu() {
-  const [Menu, setMenu] = useState(fakeMenu2)
+  const [Menu, setMenu] = useState(fakeMenu2);
   return (
     <MenuStyled>
-      {Menu.map(({id, imageSource, title, price}) => {
-        return(
-          <Card 
-            key={id}
-            image={imageSource}
-            titre={title}
-            prix={formatPrice(price)}/>
-        );
+      {Menu.map(({ id, imageSource, title, price }) => {
+        return <Card key={id} image={imageSource} titre={title} prix={formatPrice(price)} />;
       })}
     </MenuStyled>
-  )
+  );
 }
 
 const MenuStyled = styled.div`
@@ -56,4 +50,3 @@ const MenuStyled = styled.div`
     grid-template: auto / repeat(4, 1fr);
   }
 `;
-

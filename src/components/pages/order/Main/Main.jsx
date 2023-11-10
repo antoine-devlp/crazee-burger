@@ -2,12 +2,14 @@ import { styled } from "styled-components";
 import { theme } from "../../../../theme";
 
 import Menu from "./Menu";
+import AdminBar from "../Admin/AdminBar";
 export const Main = () => {
   return (
-  <MainStyled>
-    {/* <div className="bascket">test</div> */}
-    <Menu/>
-  </MainStyled>
+    <MainStyled>
+      {/* <div className="bascket">test</div> */}
+      <Menu />
+      <AdminBar />
+    </MainStyled>
   );
 };
 const MainStyled = styled.div`
@@ -18,7 +20,6 @@ const MainStyled = styled.div`
   display: grid;
   grid-template: 1fr;
   overflow: hidden;
-  
   /* grid-template: auto/ 25% auto; */
   /* .bascket{
     background: pink;
