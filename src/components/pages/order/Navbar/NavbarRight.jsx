@@ -3,13 +3,14 @@ import { theme } from "../../../../theme";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import ToggleButton from "../../../reusable-ui/ToggleButton";
-import { useState } from "react";
+import { useContext } from "react";
 import { FaUserSecret } from "react-icons/fa6";
 import Profile from "./Profile";
 import ToastAdmin from "./ToastAdmin";
+import AdminContext from "../../../../Context/AdminContext";
 
 export const NavbarRight = ({ username }) => {
-  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const { isModeAdmin, setIsModeAdmin } = useContext(AdminContext);
 
   const notification = () => {
     setIsModeAdmin(!isModeAdmin);
@@ -29,11 +30,7 @@ export const NavbarRight = ({ username }) => {
   };
   return (
     <NavbarRightStyled className="InfosProfil">
-      <ToggleButton
-        labelIfChecked={"DÉSACTIVER LE MODE ADMIN"}
-        labelIfUnchecked={"ACTIVER LE MODE ADMIN"}
-        onToggle={notification}
-      />
+      <ToggleButton labelIfChecked={"DÉSACTIVER LE MODE ADMIN"} labelIfUnchecked={"ACTIVER LE MODE ADMIN"} onToggle={notification} />
       <ToastAdmin />
       <Profile username={username} />
     </NavbarRightStyled>
