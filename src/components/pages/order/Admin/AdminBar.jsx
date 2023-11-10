@@ -7,9 +7,10 @@ import { MdModeEditOutline } from "react-icons/md";
 import { useState } from "react";
 export default function AdminBar() {
   // state
-  const [activePannel, setActivePannel] = useState(false);
-  const [css, setCss] = useState("");
-  const [activeIcon, setActiveIcon] = useState(<FiChevronUp />);
+  // TODO:Passer en context + check contenu ticket
+  const [activePannel, setActivePannel] = useState(true);
+  const [css, setCss] = useState("activePanel");
+  const [activeIcon, setActiveIcon] = useState(<FiChevronDown />);
   const [activeOnglet, setActiveOnglet] = useState("ajout");
 
   // comportement
