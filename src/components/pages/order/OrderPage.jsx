@@ -5,11 +5,15 @@ import { NavBar } from "./Navbar/NavBar";
 import { Main } from "./Main/Main";
 import { useState } from "react";
 import AdminContext from "../../../Context/AdminContext.jsx";
+import { FiChevronDown } from "react-icons/fi";
 
 export const OrderPage = () => {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
-
-  const adminContextValue = { isModeAdmin, setIsModeAdmin };
+  const [activePannel, setActivePannel] = useState(true);
+  const [css, setCss] = useState("activePanel");
+  const [activeIcon, setActiveIcon] = useState(<FiChevronDown />);
+  const [activeOnglet, setActiveOnglet] = useState("ajout");
+  const adminContextValue = { isModeAdmin, setIsModeAdmin, activePannel, setActivePannel, css, setCss, activeIcon, setActiveIcon, activeOnglet, setActiveOnglet };
 
   return (
     <OrderPageStyled>

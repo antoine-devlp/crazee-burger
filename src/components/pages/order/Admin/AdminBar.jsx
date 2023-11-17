@@ -4,17 +4,16 @@ import { FiChevronDown } from "react-icons/fi";
 import { FiChevronUp } from "react-icons/fi";
 import { AiOutlinePlus } from "react-icons/ai";
 import { MdModeEditOutline } from "react-icons/md";
-import { useState } from "react";
+import { useContext } from "react";
+import AdminContext from "../../../../Context/AdminContext";
 export default function AdminBar() {
   // state
-  // TODO:Passer en context + check contenu ticket
-  const [activePannel, setActivePannel] = useState(true);
-  const [css, setCss] = useState("activePanel");
-  const [activeIcon, setActiveIcon] = useState(<FiChevronDown />);
-  const [activeOnglet, setActiveOnglet] = useState("ajout");
-
+  const { activePannel, setActivePannel, css, setCss, activeIcon, setActiveIcon, activeOnglet, setActiveOnglet } = useContext(AdminContext);
   // comportement
-  const handleReduct = () => {
+  const handleReduct = (event) => {
+    event.preventDefault;
+    let checkActive = event.target;
+    checkActive.classList.toggle("active");
     if (activePannel) {
       setCss("");
       setActiveIcon(<FiChevronUp />);
@@ -25,13 +24,18 @@ export default function AdminBar() {
     setActivePannel(!activePannel);
   };
   const handleClick = (event) => {
+    if (!activePannel) {
+      setActivePannel(!activePannel);
+      setCss("activePanel");
+      setActiveIcon(<FiChevronDown />);
+    }
     event.preventDefault();
     let element = event.target;
     let key = element.getAttribute("b-key");
     var active = document.querySelector("[b-key=" + activeOnglet + "]");
 
-    active.classList.remove("active");
-    element.classList.add("active");
+    active.classList.toggle("active");
+    element.classList.toggle("active");
     setActiveOnglet(key);
   };
   // render
@@ -39,14 +43,14 @@ export default function AdminBar() {
     <AdminBarStyled className={css}>
       <div className="wrapper">
         <div className="onglet-wrapper">
-          <div className="onglet" onClick={() => handleReduct()}>
+          <div className={!activePannel ? "onglet active" : "onglet"} onClick={(event) => handleReduct(event)}>
             {activeIcon}
           </div>
-          <div className="onglet active" b-key={"ajout"} onClick={handleClick}>
+          <div className={activeOnglet == "ajout" ? "onglet active" : "onglet"} b-key={"ajout"} onClick={handleClick}>
             <AiOutlinePlus className="noclick" />
             <div className="texte noclick">Ajouter un produit</div>
           </div>
-          <div className="onglet" b-key={"modif"} onClick={handleClick}>
+          <div className={activeOnglet == "modif" ? "onglet active" : "onglet"} b-key={"modif"} onClick={handleClick}>
             <MdModeEditOutline className="noclick" />
             <div className="texte noclick">Modifier un produit</div>
           </div>
