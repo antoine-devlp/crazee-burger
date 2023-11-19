@@ -10,6 +10,6 @@ export default createContext({
   setCss: () => {},
   activeIcon: <FiChevronDown />,
   setActiveIcon: () => {},
-  activeOnglet: "ajout",
+  activeOnglet: "",
   setActiveOnglet: () => {},
 });
