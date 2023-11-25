@@ -8,6 +8,6 @@ export default function AdminConcent() {
 const AdminContentStyled = styled.div`
   height: 100%;
   background: ${theme.colors.background_white};
-  box-shadow: 0px -6px 8px -2px #0000001a;
+  box-shadow: ${theme.shadows.subtle};
   padding: 17px 21px;
 `;

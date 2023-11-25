@@ -19,7 +19,7 @@ const PrimaryButtonStyled = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: ${theme.fonts.P0};
+  font-size: ${theme.fonts.SM};
   font-weight: ${theme.weights.bold};
   transition: all 0.3s ease-in-out;
 
@@ -29,7 +29,7 @@ const PrimaryButtonStyled = styled.button`
     cursor: pointer;
     transition: all 0.3s ease-in-out;
   }
-  &:active{
+  &:active {
     background-color: ${theme.colors.primary_burger};
     color: ${theme.colors.white};
     border-color: ${theme.colors.white};

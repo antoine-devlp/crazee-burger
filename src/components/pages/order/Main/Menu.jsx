@@ -17,7 +17,7 @@ export default function Menu() {
 
 const MenuStyled = styled.div`
   display: grid;
-  grid-template: auto / repeat(1, 1fr);
+  grid-template: auto / repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 30px;
   justify-items: center;
   padding: 50px 50px 150px;
@@ -38,15 +38,10 @@ const MenuStyled = styled.div`
     background: #555;
   }
 
-  @media (min-width: 768px) {
-    grid-template: auto / repeat(2, 1fr);
-  }
   @media (min-width: 1200px) {
     grid-gap: 45px;
-    grid-template: auto / repeat(3, 1fr);
   }
   @media (min-width: 1400px) {
     grid-gap: 60px;
-    grid-template: auto / repeat(4, 1fr);
   }
 `;
