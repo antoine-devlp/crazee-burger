@@ -21,7 +21,7 @@ export default function AdminTabs() {
     setCurrentTabSelected(tabSelected);
   };
 
-  const tabs = getTabConfig(currentTabSelected);
+  const tabs = getTabConfig();
 
   return (
     <AdminTabsStyled>
@@ -36,7 +36,7 @@ export default function AdminTabs() {
           texte={tab.texte}
           icon={tab.icon}
           onClick={() => selectTab(tab.index)}
-          className={tab.className}
+          className={currentTabSelected === tab.index ? "active" : ""}
           key={tab.index}
         />
       ))}

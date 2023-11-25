@@ -2,14 +2,16 @@ import styled from "styled-components";
 import { theme } from "../../../../theme";
 import { useContext } from "react";
 import AdminContext from "../../../../Context/AdminContext";
+import { getTabConfig, getTabSelected } from "./getTabConfig";
 
 export default function AdminContent() {
   const { currentTabSelected } = useContext(AdminContext);
+
+  const tabs = getTabConfig();
+  const tabSelected = getTabSelected(tabs, currentTabSelected);
+
   return (
-    <AdminContentStyled>
-      {currentTabSelected === "add" && "ajouter un produit"}
-      {currentTabSelected == "edit" && "modifier un produit"}
-    </AdminContentStyled>
+    <AdminContentStyled>{tabSelected && tabSelected.texte}</AdminContentStyled>
   );
 }
 
