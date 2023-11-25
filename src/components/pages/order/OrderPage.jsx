@@ -9,9 +9,15 @@ import { FiChevronDown } from "react-icons/fi";
 export const OrderPage = () => {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [activePannel, setActivePannel] = useState(true);
-  const [isAddTab, setIsAddTab] = useState(true);
-  const [isEditTab, setIsEditTab] = useState(false);
-  const adminContextValue = { isModeAdmin, setIsModeAdmin, activePannel, setActivePannel, isAddTab, setIsAddTab, isEditTab, setIsEditTab };
+  const [currentTabSelected, setCurrentTabSelected] = useState("add");
+  const adminContextValue = {
+    isModeAdmin,
+    setIsModeAdmin,
+    activePannel,
+    setActivePannel,
+    currentTabSelected,
+    setCurrentTabSelected,
+  };
 
   return (
     <OrderPageStyled>

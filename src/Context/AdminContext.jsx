@@ -6,8 +6,6 @@ export default createContext({
   setIsModeAdmin: () => {},
   activePannel: true,
   setActivePannel: () => {},
-  isAddTab: "",
-  setIsAddTab: () => {},
-  isEditTab: "",
-  setIsEditTab: () => {},
+  currentTabSelected: "",
+  setCurrentTabSelected: () => {},
 });

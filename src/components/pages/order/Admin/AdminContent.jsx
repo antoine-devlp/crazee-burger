@@ -4,11 +4,11 @@ import { useContext } from "react";
 import AdminContext from "../../../../Context/AdminContext";
 
 export default function AdminContent() {
-  const { isAddTab, isEditTab } = useContext(AdminContext);
+  const { currentTabSelected } = useContext(AdminContext);
   return (
     <AdminContentStyled>
-      {isAddTab && "ajouter un produit"}
-      {isEditTab && "modifier un produit"}
+      {currentTabSelected === "add" && "ajouter un produit"}
+      {currentTabSelected == "edit" && "modifier un produit"}
     </AdminContentStyled>
   );
 }
