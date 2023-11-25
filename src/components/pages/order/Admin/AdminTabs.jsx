@@ -5,44 +5,29 @@ import AdminContext from "../../../../Context/AdminContext";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import styled from "styled-components";
 import Tab from "../../../reusable-ui/Tab";
+import { theme } from "../../../../theme";
 
 export default function AdminTabs() {
-  const { activePannel, setActivePannel, setCss, activeIcon, setActiveIcon, activeOnglet, setActiveOnglet } = useContext(AdminContext);
+  const { activePannel, setActivePannel, isAddTab, setIsAddTab, isEditTab, setIsEditTab } = useContext(AdminContext);
 
-  const handleReduct = (event) => {
-    event.preventDefault;
-    let checkActive = event.target;
-    checkActive.classList.toggle("active");
-    if (activePannel) {
-      setCss("");
-      setActiveIcon(<FiChevronUp />);
-    } else {
-      setCss("activePanel");
-      setActiveIcon(<FiChevronDown />);
-    }
-    setActivePannel(!activePannel);
-  };
-  const handleClick = (event) => {
-    if (!activePannel) {
-      setActivePannel(!activePannel);
-      setCss("activePanel");
-      setActiveIcon(<FiChevronDown />);
-    }
-    event.preventDefault();
-    let element = event.target;
-    let key = element.getAttribute("b-key");
-    var active = document.querySelector("[b-key=" + activeOnglet + "]");
+  const selectTab = (tabSelected) => {
+    setActivePannel(true);
 
-    active.classList.toggle("active");
-    element.classList.toggle("active");
-    setActiveOnglet(key);
+    if (tabSelected === "add") {
+      setIsAddTab(true);
+      setIsEditTab(false);
+    }
+    if (tabSelected === "edit") {
+      setIsEditTab(true);
+      setIsAddTab(false);
+    }
   };
 
   return (
     <AdminTabsStyled>
-      <Tab conditionClass={!activePannel ? "onglet active" : "onglet"} onClick={(event) => handleReduct(event)} icon={activeIcon} />
-      <Tab keyElement={"ajout"} conditionClass={activeOnglet == "ajout" ? "onglet active" : "onglet"} onClick={handleClick} texte="Ajouter un produit" icon={<AiOutlinePlus />} />
-      <Tab keyElement={"modif"} conditionClass={activeOnglet == "modif" ? "onglet active" : "onglet"} onClick={handleClick} texte="Modifier un produit" icon={<MdModeEditOutline />} />
+      <Tab className={!activePannel ? "active" : ""} onClick={() => setActivePannel(!activePannel)} icon={activePannel ? <FiChevronDown /> : <FiChevronUp />} />
+      <Tab className={isAddTab ? "active" : ""} onClick={() => selectTab("add")} texte="Ajouter un produit" icon={<AiOutlinePlus />} />
+      <Tab className={isEditTab ? "active" : ""} onClick={() => selectTab("edit")} texte="Modifier un produit" icon={<MdModeEditOutline />} />
     </AdminTabsStyled>
   );
 }
@@ -50,4 +35,13 @@ const AdminTabsStyled = styled.div`
   padding: 0px 71px;
   display: flex;
   align-items: center;
+  .active {
+    background: ${theme.colors.background_dark};
+    color: ${theme.colors.background_white};
+    &:hover {
+      .texte {
+        border-bottom: 2px solid ${theme.colors.background_white};
+      }
+    }
+  }
 `;

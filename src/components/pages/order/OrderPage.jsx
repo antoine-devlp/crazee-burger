@@ -1,6 +1,5 @@
 import { styled } from "styled-components";
 import { theme } from "../../../theme";
-// import { theme } from "../../../theme";
 import { NavBar } from "./Navbar/NavBar";
 import { Main } from "./Main/Main";
 import { useState } from "react";
@@ -10,10 +9,9 @@ import { FiChevronDown } from "react-icons/fi";
 export const OrderPage = () => {
   const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [activePannel, setActivePannel] = useState(true);
-  const [css, setCss] = useState("activePanel");
-  const [activeIcon, setActiveIcon] = useState(<FiChevronDown />);
-  const [activeOnglet, setActiveOnglet] = useState("ajout");
-  const adminContextValue = { isModeAdmin, setIsModeAdmin, activePannel, setActivePannel, css, setCss, activeIcon, setActiveIcon, activeOnglet, setActiveOnglet };
+  const [isAddTab, setIsAddTab] = useState(true);
+  const [isEditTab, setIsEditTab] = useState(false);
+  const adminContextValue = { isModeAdmin, setIsModeAdmin, activePannel, setActivePannel, isAddTab, setIsAddTab, isEditTab, setIsEditTab };
 
   return (
     <OrderPageStyled>
