@@ -23,11 +23,35 @@ export default function AdminTabs() {
     }
   };
 
+  const tabsConfig = [
+    {
+      className: !activePannel ? "active" : "",
+      onClick: () => setActivePannel(!activePannel),
+      texte: "",
+      icon: activePannel ? <FiChevronDown /> : <FiChevronUp />,
+    },
+    {
+      className: isAddTab ? "active" : "",
+      onClick: () => selectTab("add"),
+      texte: "Ajouter un produit",
+      icon: <AiOutlinePlus />,
+    },
+    {
+      className: isEditTab ? "active" : "",
+      onClick: () => selectTab("edit"),
+      texte: "Modifier un produit",
+      icon: <MdModeEditOutline />,
+    },
+  ];
+
   return (
     <AdminTabsStyled>
-      <Tab className={!activePannel ? "active" : ""} onClick={() => setActivePannel(!activePannel)} icon={activePannel ? <FiChevronDown /> : <FiChevronUp />} />
-      <Tab className={isAddTab ? "active" : ""} onClick={() => selectTab("add")} texte="Ajouter un produit" icon={<AiOutlinePlus />} />
-      <Tab className={isEditTab ? "active" : ""} onClick={() => selectTab("edit")} texte="Modifier un produit" icon={<MdModeEditOutline />} />
+      {/* <Tab className={!activePannel ? "active" : ""} onClick={() => setActivePannel(!activePannel)} texte="" icon={activePannel ? <FiChevronDown /> : <FiChevronUp />} /> */}
+      {/* <Tab className={isAddTab ? "active" : ""} onClick={() => selectTab("add")} texte="Ajouter un produit" icon={<AiOutlinePlus />} /> */}
+      {/* <Tab className={isEditTab ? "active" : ""} onClick={() => selectTab("edit")} texte="Modifier un produit" icon={<MdModeEditOutline />} /> */}
+      {tabsConfig.map((tab) => {
+        return <Tab className={tab.className} onClick={tab.onClick} texte={tab.texte} icon={tab.icon} />;
+      })}
     </AdminTabsStyled>
   );
 }
