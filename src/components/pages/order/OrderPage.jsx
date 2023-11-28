@@ -1,15 +1,31 @@
 import { styled } from "styled-components";
 import { theme } from "../../../theme";
-// import { theme } from "../../../theme";
 import { NavBar } from "./Navbar/NavBar";
 import { Main } from "./Main/Main";
+import { useState } from "react";
+import AdminContext from "../../../Context/AdminContext.jsx";
+import { FiChevronDown } from "react-icons/fi";
 
 export const OrderPage = () => {
+  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const [activePannel, setActivePannel] = useState(true);
+  const [currentTabSelected, setCurrentTabSelected] = useState("add");
+  const adminContextValue = {
+    isModeAdmin,
+    setIsModeAdmin,
+    activePannel,
+    setActivePannel,
+    currentTabSelected,
+    setCurrentTabSelected,
+  };
+
   return (
     <OrderPageStyled>
       <div className="container">
-        <NavBar />
-        <Main />
+        <AdminContext.Provider value={adminContextValue}>
+          <NavBar />
+          <Main />
+        </AdminContext.Provider>
       </div>
     </OrderPageStyled>
   );
