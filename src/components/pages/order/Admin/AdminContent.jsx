@@ -11,7 +11,9 @@ export default function AdminContent() {
   const tabSelected = getTabSelected(tabs, currentTabSelected);
 
   return (
-    <AdminContentStyled>{tabSelected && tabSelected.texte}</AdminContentStyled>
+    <AdminContentStyled>
+      {tabSelected && tabSelected.components}
+    </AdminContentStyled>
   );
 }
 
