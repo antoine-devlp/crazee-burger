@@ -1,6 +1,4 @@
 import { useContext } from "react";
-import { AiOutlinePlus } from "react-icons/ai";
-import { MdModeEditOutline } from "react-icons/md";
 import AdminContext from "../../../../Context/AdminContext";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import styled from "styled-components";
