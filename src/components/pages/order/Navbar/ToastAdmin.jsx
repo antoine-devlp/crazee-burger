@@ -22,6 +22,7 @@ const ToastContainerStyled = styled(ToastContainer)`
       margin-right: 20px;
       margin-left: 5px;
     }
+
     div {
       line-height: 1.3em;
     }
